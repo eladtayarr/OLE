@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/Users/eladtayar/Desktop/ניהול מערכות מידע/פיתוח מערכות WEB/פרויקט מסכם/OLE/OLE-1/venv/bin/python" "$0" "$@"
-' '''
+#!/Users/eladtayar/OLE-APP/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

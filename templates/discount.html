@@ -1,0 +1,47 @@
+<div id="body">
+    <h2>Discount</h2>
+    <div class="discount-sections">
+        <div class="discount-section">
+            <h3>Discount for Everything</h3>
+            <form id="CouponForm">
+                <div class="input-discount"><br>
+                    <label for="discount">Discount</label>
+                    <input type="number" id="discount">
+                </div>
+                <button class="button" onclick="discountFlight()">Everyone</button>
+            </form>
+        </div>
+        <div class="discount-section">
+            <h3>Specific Discount</h3>
+            <div class="input-discount"><br>
+                <label for="specific">Destination</label>
+                <input type="text" id="specific">
+            </div>
+            <button class="button" onclick="applyDiscount()">Specific</button>
+        </div>
+    </div>
+    <div class="button-container"><br><br><br><br><br>
+        <button class="pink-button" onclick="fetchFlight()">Show All Flights</button> 
+        <button class="pink-button" onclick="showSpecificDestinationInput()">Search specific</button>
+    </div><br> 
+    <div id="specificDestinationInputContainer" style="display: none;">
+        <div class="discount-sections">
+            <input type="text" id="destination" placeholder="Enter Destination">
+        </div>
+        <button class="button" onclick="searchFlights()">Search Flights</button>
+    </div><br><br>
+    <table class="my-table">
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Origin</th>
+                <th>Date</th>
+                <th>Hour</th>
+                <th>Terminal</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="flightList"></tbody>
+    </table><br></br>
+</div>
+<script src="path/to/script.js"></script>

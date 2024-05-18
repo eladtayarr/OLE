@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"content="user-scalable=0, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>OLE || Home</title>
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+	<script type='text/javascript' src='static/js/script.js'></script>
+</head>
+<body>
+<div id="bodyloginForm"></div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="cont">
+        <h2>Welcome to the Home Page</h2>
+    {% if current_user.is_authenticated %}
+        {% if current_user.username == "elad" %}
+            <p>Hello, {{ current_user.username }}, the Admin!</p>
+            <a href="{{ url_for('admin') }}">Admin Home Page</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+
+        {% elif current_user.username == "lior" %}
+            <p>Hello, {{ current_user.username }}, the Manager!</p>
+            <a href="{{ url_for('management') }}">Manager Home Page</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+
+        {% elif current_user.username == "Or" %}
+            <p>Hello, {{ current_user.username }}, the Manager!</p>
+            <a href="{{ url_for('management') }}">Manager Home Page</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+
+        {% else %}
+            <p>Hello, {{ current_user.username }}, Customer!</p>
+            <a href="{{ url_for('CustomerHome') }}">Customer Home Page</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+        
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">Register</a>
+    {% endif %}     
+    </div>
+</div>
+</body>
+</html>
+    

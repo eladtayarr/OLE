@@ -1,0 +1,27 @@
+<div id="body">
+    <h2>Add an opinion</h2><br>
+    <form class="opnionForm">
+        <label for="name"><span>Name</span><input type="text" id="name"></label><br><br>
+        <label for="email"><span>Email</span><input type="email" id="email"></label><br><br>
+        <label for="subject"><span>Subject</span><input type="text" id="subject"></label><br><br>
+        <label for="message"><span>Feedback</span><textarea name="message" id="message"></textarea></label><br><br>
+        <label for="rating"><span>Rating</span></label>
+        <div class="center-rating">
+            <div class="rating-stars">
+                <input type="radio" name="rating" id="star5" value="5">
+                <label for="star5"></label>&nbsp&nbsp
+                <input type="radio" name="rating" id="star4" value="4">
+                <label for="star4"></label>&nbsp&nbsp
+                <input type="radio" name="rating" id="star3" value="3">
+                <label for="star3"></label>&nbsp&nbsp
+                <input type="radio" name="rating" id="star2" value="2">
+                <label for="star2"></label>&nbsp&nbsp
+                <input type="radio" name="rating" id="star1" value="1">
+                <label for="star1"></label>&nbsp&nbsp&nbsp&nbsp
+            </div>
+        </div><br><br><br><br><br>
+        <button class="button" onclick="addNewOpinion()">Submit</button><br><br>
+    </form>
+    <div id="result"></div>
+</div>
+<script src="path/to/script.js"></script>

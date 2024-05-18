@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OLE || Admin</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1> Welcome to Admin Home Page</h1>
+    <a href="{{ url_for('DishesDetails') }}">Enter to Dishes Details</a><br><br>
+    <a href="{{ url_for('ExistingOrders') }}">View details of Existing Orders</a><br><br>
+    <a href="{{ url_for('ClosedOrders') }}">View details of Closed Orders</a><br><br>
+    <a href="{{ url_for('Graphs') }}">View graphs on restaurant data</a><br><br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
