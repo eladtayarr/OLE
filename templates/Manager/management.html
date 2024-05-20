@@ -1,0 +1,32 @@
+
+<div id="body">
+    <h2>Management</h2>
+    <button class="pink-button" onclick="fetchUser()">Show users</button>
+    <br> </br>
+    <table class="my-table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Role</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody id="userList"></tbody>
+    </table></br><br><br>
+    <div class="container">
+        <form id="userForm">
+            <h1>New User</h1>
+            <label for="username">Username&nbsp</label><input type="text" id="username" name="username" required><br>
+            <label for="password">Password&nbsp&nbsp</label><input type="password" id="password" name="password" required><br><br>
+            <select id="role" name="role" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select><br><br>
+              <br><br>
+            <button class="button" onclick="addNewUser()">Add User</button><br><br>
+        </form><br>
+        <div id="result"></div>
+    </div>
+</div>
+<script src="path/to/script.js"></script>

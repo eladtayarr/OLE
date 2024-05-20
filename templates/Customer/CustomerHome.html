@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OLE || Customer Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1> Welcome to Customer Home Page</h1>
+    <a href="{{ url_for('NewOrder') }}">Place a New Order</a><br><br>
+    <a href="{{ url_for('ProductReview') }}">Enter a Product Review</a><br><br>
+    <a href="{{ url_for('search') }}">search</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

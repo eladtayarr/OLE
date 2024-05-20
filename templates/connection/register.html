@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html content="user-scalable=0, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<head>
+    <title>OLE || Register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2 style="font-size: 40px; color:#000000;"><b>Register<b></h2>
+    <section>
+    <form method="POST" action="{{ url_for('register') }}">
+        <label class="login-input-username" for="Email"><b>Enter Email:<b></label><br><br>
+        <input class="login-lable-username" type="email" id="Email" name="Email" required>
+        <br><br><br>
+        <label class="login-input-username" for="username"><b>Enter Username:<b></label><br><br>
+        <input class="login-lable-username" type="text" id="username" name="username" required>
+        <br><br><br>
+        <label class="login-input-password" for="password"><b>Enter Password:<b></label><br><br>
+        <input class="login-lable-password" type="password" id="password" name="password" required>
+        <br><br><br>
+        <button class="register-enter-button" type="submit">Register</button>
+    </form>
+    </section>
+    <p class="register-add-new">Already have an account? <br><br><br>  <a class="register-login-button" href="{{ url_for('login') }}">Click here for Login</a></p>
+</body>
+</html>

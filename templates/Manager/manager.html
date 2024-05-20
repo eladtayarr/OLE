@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OLE || Manager</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="manager-bg">
+    <h1 class="user-title"> Welcome to Manager Home Page</h1><br>
+    <section>
+    <div class="container-manager">
+        <a class="button-grid-manager " href="{{ url_for('DishesDetails') }}"><b>View open orders</b></a>
+        <a class="button-grid-manager" href="{{ url_for('ExistingOrders') }}"><b>Viewing closed orders</b></a>
+        <a class="button-grid-manager" href="{{ url_for('ClosedOrders') }}"><b>Update order</b></a>
+        <a class="button-grid-manager" href="{{ url_for('Graphs') }}"><b>Client update</b></a>
+        <a class="button-grid-manager" href="{{ url_for('Graphs') }}"><b>employee list</b></a>
+        <a class="button-grid-manager" href="{{ url_for('Graphs') }}"><b>customer list</b></a>
+    </section>
+    
+    <div>
+        <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a><br>
+    </div>
+    
+    <br>
+
+    <div>
+        <a class="home-page-manager" href="{{ url_for('home') }}"><b>Back to Home Page</b></a>
+        </div>
+</body>
+</html>
