@@ -1,78 +1,75 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>OLE || Adding a Dish</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>הוספת מנה חדשה</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/addNewDishes.js') }}"
+      defer
+    ></script>
+  </head>
+  <body>
+    <section>
+      <nav class="navbar navbar-dropdown">
+        <div class="container-fluid">
+          <div class="home-button">
+            <span><a href="{{ url_for('home') }}">OLE</a></span>
+          </div>
+          <div class="nav-links">
+            <ul class="nav-bar" style="font-size: 20px">
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li style="margin-left: auto">
+                <a class="nav-item-logo" href="{{ url_for('admin') }}">Admin</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <br />
+    <h1>Adding a New Dish to The Menu</h1>
+    <section>
+      <div class="form-container">
+        <form id="newDishForm" enctype="multipart/form-data">
+          <label for="dishName">The name of the dish:</label><br />
+          <input
+            type="text"
+            id="dishName"
+            name="dishName"
+            required
+          /><br /><br />
 
-<body>
-<div id="body">
-    <h2>Adding a Dish to the Menu</h2><br>
+          <label for="dishDescription">Description of the dish:</label><br />
+          <textarea
+            id="dishDescription"
+            name="dishDescription"
+            required
+          ></textarea
+          ><br /><br />
 
-    <form action="/addNewDishes" method="POST">
+          <label for="dishPrice">Price of the dish:</label><br />
+          <textarea id="dishPrice" name="dishPrice" required></textarea
+          ><br /><br />
 
-        <label for="Name">The Name of The Dish:</label><br>
-        <input type="text" id="Name" name="Name" required><br><br>
+          <label for="dishImage">A picture of the dish:</label><br />
+          <input
+            type="file"
+            id="dishImage"
+            name="dishImage"
+            accept="image/*"
+            required
+          /><br /><br />
 
-        <label for="Description">Description of The Dish:</label><br>
-        <input type="text" id="Description" name="Description" required><br><br>
-
-        <label for="Ingredients">Ingredients in The Dish:</label><br>
-        <input type="text" id="Ingredients" name="Ingredients" required><br><br>
-
-        <label for="price">The Price of The Dish:</label><br>
-        <input type="number" id="price" name="price" required><br><br><br><br><br>
-
-        <button class="button" onclick="addNewDish()">Add Dishs</button><br>
-    </form><br>
-<div id="result"></div>
-</div>
-    <script>
-        async function addNewDish(event) {
-            event.preventDefault();
-            const Name = document.getElementById('Name').value;
-            const Description = document.getElementById('Description').value;
-            const Ingredients = document.getElementById('Ingredients').value;
-            const price = document.getElementById('price').value;
-
-            if (price <= 0) {
-                alert('Price must be greater than 0.');
-                return;
-            }
-            
-            const dishes = {
-                Name,
-                Description,
-                Ingredients,
-                price
-            };
-
-            try {
-                const response = await fetch('/dishes', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(dishes),
-                });
-
-                if (response.ok) {
-                    console.log('Dish added successfully!');
-                    alert('Dish added successfully!');
-                    document.getElementById('Name').value = '';
-                    document.getElementById('Description').value = '';
-                    document.getElementById('Ingredients').value = '';
-                    document.getElementById('Price').value = '';
-                } else {
-                    console.error('Failed to add dish:', response.statusText);
-                    alert('Failed to add dish. Please try again later.');
-                }
-
-            } catch (error) {
-                console.error('Error adding dish:', error);
-                alert('An error occurred while adding the dish. Please try again later.');
-            }
-        }
-    </script>
-</body>
+          <button type="submit">Add the dish to the menu</button>
+        </form>
+      </div>
+    </section>
+  </body>
 </html>

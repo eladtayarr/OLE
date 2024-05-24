@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>קונדיטוריה</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/style_newOrder.css"
+    />
+    <script type="text/javascript" src="static/js/addToCart.js" defer></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/menu.js') }}"
+      defer
+    ></script>
+  </head>
+  <body>
+    
+    <section>
+      <nav class="navbar navbar-dropdown">
+        <div class="container-fluid">
+          <div class="home-button">
+            <span><a href="{{ url_for('home') }}">OLE</a></span>
+          </div>
+          <div class="nav-links">
+            <ul class="nav-bar" style="font-size: 20px">
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li style="margin-left: auto">
+                <a class="nav-item-logo" href="#" onclick="openCart()"
+                  >Cart (<span id="cart-count">0</span>) $<span id="cart-total"
+                    >0.00</span
+                  ></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <br />
+    <h1>Best Sellers</h1>
+    <section>
+      <div class="order-container">
+        <div class="order-product">
+          <div class="order-product-inner">
+            <div class="order-product-front">
+              <img src="static/images/Croissant.webp" alt="Croissant" />
+            </div>
+            <div class="order-product-back">
+              <p>Explain of the Croissant</p>
+              <h3>10.00$</h3>
+              <button
+                class="order-add-to-cart"
+                data-product="Croissant"
+                data-price="10.00"
+              >
+                Add To Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="order-product">
+          <div class="order-product-inner">
+            <div class="order-product-front">
+              <img src="static/images/Macaron.webp" alt="Macaron" />
+            </div>
+            <div class="order-product-back">
+              <p>Explain of the Macaron</p>
+              <h3>15.00$</h3>
+              <button
+                class="order-add-to-cart"
+                data-product="Macaron"
+                data-price="15.00"
+              >
+                Add To Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="order-product">
+          <div class="order-product-inner">
+            <div class="order-product-front">
+              <img src="static/images/Cheesecake.webp" alt="Cheesecake" />
+            </div>
+            <div class="order-product-back">
+              <p>Explain of the Cheesecake</p>
+              <h3>20.00$</h3>
+              <button
+                class="order-add-to-cart"
+                data-product="Cheesecake"
+                data-price="20.00"
+              >
+                Add To Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="order-product">
+          <div class="order-product-inner">
+            <div class="order-product-front">
+              <img
+                src="static/images/Chocolate_Cake.webp"
+                alt="Chocolate Cake"
+              />
+            </div>
+            <div class="order-product-back">
+              <p>Explain of the Chocolate Cake</p>
+              <h3>25.00$</h3>
+              <button
+                class="order-add-to-cart"
+                data-product="Chocolate Cake"
+                data-price="25.00"
+              >
+                Add To Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <h1>The full menu</h1>
+    <section>
+      <div  class="menu-table">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                      <th>Image</th>
+                      <th>Buy</th>
+                  </tr>
+              </thead>
+              <tbody id="menuTableBody">
+                  <!-- המנות יוצגו כאן -->
+              </tbody>
+          </table>
+      </div>
+  </section>
+
+    <!-- The Modal -->
+    <div id="cartModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" onclick="closeCart()">&times;</span>
+          <h2>Cart</h2>
+        </div>
+        <div class="modal-body" style="font-size: 30px; font-weight: 600">
+          <ul id="cartList"></ul>
+        </div>
+        <div class="modal-footer">
+          <button class="checkout-button" onclick="checkout()">Checkout</button>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div>
+      <a class="logout-home-page" href="{{ url_for('logout') }}"
+        ><b>Logout</b></a
+      >
+      <a class="home-page" href="{{ url_for('home') }}"
+        ><b>Back to home page</b></a
+      >
+    </div>
+  </body>
+</html>

@@ -3,28 +3,39 @@
 <head>
     <title>OLE || Admin</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_newOrder.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+    <section>
+        <nav class="navbar navbar-dropdown">
+            <div class="container-fluid">
+                <div class="home-button">
+                    <span><a href="{{ url_for('home') }}">OLE</a></span>
+                </div>
+                <div class="nav-links">
+                    <ul class="nav-bar" style="font-size: 20px">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li style="margin-left: auto">
+                            <a class="nav-item-logo" href="{{ url_for('admin') }}">Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
     <h1 class="user-title"> Welcome to Admin Home Page</h1><br>
     <section>
     <div class="container-admin">
-        <a class="button-grid-admin " href="{{ url_for('DishesDetails') }}"><b>Enter to Dishes Details</b></a>
-        <a class="button-grid-admin" href="{{ url_for('ExistingOrders') }}"><b>View details of Existing Orders</b></a>
-        <a class="button-grid-admin" href="{{ url_for('ClosedOrders') }}"><b>View details of Closed Orders</b></a>
-        <a class="button-grid-admin" href="{{ url_for('Graphs') }}"><b>View graphs on restaurant data</b></a>
+        <a class="button-grid-admin " href="{{ url_for('addNewDishes') }}"><b>Add New Dish to the Menu</b></a>
+        <a class="button-grid-admin" href="{{ url_for('ReviewView') }}"><b>View The Reviews of The Customers</b></a>
 
     </section>
     
     <div>
         <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a>
-    </div>
-    
-    <br>
-
-    <div>
-    <a class="nav-item-logo" href="{{ url_for('home') }}">Back to home page</a>
+        <a class="home-page" href="{{ url_for('home') }}"><b>Back to Home Page</b></a>
     </div>
 
 </body>

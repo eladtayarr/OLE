@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Reviews</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style_newOrder.css">
+    <script type="text/javascript" src="static/js/reviewView.js" defer></script>
+</head>
+<body>
+    <section>
+        <nav class="navbar navbar-dropdown">
+            <div class="container-fluid">
+                <div class="home-button">
+                    <span><a href="#">OLE</a></span>
+                </div>
+                <div class="nav-links">
+                    <ul class="nav-bar" style="font-size: 20px">
+                        <li><a href="#">Home</a></li>
+                        <li style="margin-left: auto">
+                            <a class="nav-item-logo" href="">Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <br>
+    <section>
+        <div class="reviews-container">
+            <h2>The Reviews Entered by The Customers</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer's Name</th>
+                        <th>Email</th>
+                        <th>Topic</th>
+                        <th>Review</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody id="reviewsTableBody">
+                    <!-- הביקורות יוצגו כאן -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <br><br>
+
+    <div>
+        <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a> <a class="home-page" href="{{ url_for('home') }}"><b>Back to home page</b></a>
+    </div>
+</body>
+</html>

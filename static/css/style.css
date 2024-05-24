@@ -72,7 +72,7 @@ a:hover {
 }
 
 /* Specific sections for login and admin messages */
-#bodyloginForm {
+.bodyloginForm {
     margin-top: 30px;
     text-align: center;
 }
@@ -239,18 +239,6 @@ a:hover {
     border-radius: 16px;
   }
 
-  .logout-home-page{
-    font-size: large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, bold;
-    border: 2px solid black; /* סוג המסגרת ועוביה */
-    margin-right: 30px;
-    background-color: #854242;
-    background-attachment: fixed;
-    padding: 20px 40px; /* ריווח פנימי בתוך המסגרת */
-    display: inline-block; /* שמירה על מיקום אינליין */
-    color:#ffffff;
-    border-radius: 16px;
-  }
 
   
   /* LOGIN PAGE */
@@ -327,7 +315,9 @@ a:hover {
  }
 
  .button-grid-admin {
-    display: block; /* כדי שהכפתורים יתנהגו כמו בלוק */
+    display: flex; /* כדי שהכפתורים יתנהגו כמו בלוק */
+    justify-content: center; /* מרכז אופקי */
+    align-items: center;
     padding: 20px 40px; /* ריווח פנימי בתוך הכפתור */
     background-color: #172d4a; /* צבע רקע של הכפתור */
     color: white; /* צבע טקסט של הכפתור */
@@ -344,17 +334,43 @@ a:hover {
     font-size: 40px;
     display: grid;
     width: device-width;
-    grid-template-columns:repeat(4, 1fr) ; /* שלושה עמודות ברוחב שווה */
-    gap: 40px; /* מרווח בין הכפתורים */
-    max-width: 600px; /* רוחב מקסימלי של המסגרת */
-    max-height: 600px;
+    grid-template-columns:repeat(2,1fr) ;
+    gap: 80px; /* מרווח בין הכפתורים */
+    min-width: 300px; /* רוחב מקסימלי של המסגרת */
+    min-height: 200px;
     margin:50px; /* מרכז המסגרת אופקית */
 }
-
 
  .manager-bg{
     background-color: rgb(255, 240, 250);
  }
+
+ .container-customer {
+    font-size: 40px;
+    display: grid;
+    width: device-width;
+    grid-template-columns:repeat(2,1fr) ;
+    gap: 80px; /* מרווח בין הכפתורים */
+    min-width: 300px; /* רוחב מקסימלי של המסגרת */
+    min-height: 200px;
+    margin:50px; /* מרכז המסגרת אופקית */
+}
+
+.button-grid-customer {
+    display: flex; /* כדי שהכפתורים יתנהגו כמו בלוק */
+    justify-content: center; /* מרכז אופקי */
+    align-items: center;
+    padding: 20px 40px; /* ריווח פנימי בתוך הכפתור */
+    background-color: #6dab80; /* צבע רקע של הכפתור */
+    color: white; /* צבע טקסט של הכפתור */
+    text-align: center; /* יישור הטקסט למרכז */
+    text-decoration: none; /* ביטול קו תחתון */
+    border-radius: 16px; /* פינות מעוגלות */
+ }
+ .button-grid-customer:hover {
+    background-color: #d4e6d9; /* שינוי צבע הרקע כאשר העכבר מעל הכפתור */
+    color: rgb(0, 0, 0);
+}
 
 .container-manager {
     font-size: 40px;

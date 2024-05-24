@@ -1,14 +1,18 @@
+import os
 from flask import Flask, render_template, redirect, url_for, request, flash, jsonify
 from flask_pymongo import PyMongo
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from bson.objectid import ObjectId
+import database
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '0rsppWZt0kr5v1zclzlMFi3PEmGVgUT0HKaQZ68oiiLBERCRufUYRFy3b9UFanm2'
 app.config['MONGO_URI'] = "mongodb+srv://elad:elad@cluster0.ecf8sfr.mongodb.net/myNewDatabase?retryWrites=true&w=majority"
 mongo = PyMongo(app)
 db=mongo.db
+app.config['UPLOAD_FOLDER'] = 'static/uploads/'
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -31,7 +35,7 @@ class User(UserMixin):
 def load_user(user_id):
     return User.get(user_id)
 
-# CONNECTION
+# CONNECTION --- LOGIN AND REGISTER
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -73,44 +77,10 @@ def logout():
 def home():
     return render_template('index.html')
 
-        
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
-
-@app.route('/discount')
-def discount():
-    return render_template('discount.html')
-
-@app.route('/graph')
-def graph():
-    return render_template('graph.html')
-
-@app.route('/home')
-def home_page():
-    return render_template('home.html')
-
-@app.route('/message')
-def message():
-    return render_template('message.html')
-
-
-@app.route('/sale')
-def sale():
-    return render_template('sale.html')
-
-@app.route('/search')
-def search():
-    return render_template('Customer/search.html')
 
 @app.route('/user')
 def user():
     return render_template('user.html')
-
-@app.route('/menu')
-def menu():
-    menu_items = mongo.db.dishes.find()
-    return render_template('menu.html', menu_items=menu_items)
 
 
 # ADMIN
@@ -119,21 +89,48 @@ def menu():
 def admin():
     return render_template('Admin/admin.html')
 
-@app.route('/DishesDetails')
-def DishesDetails():
-    return render_template('Admin/DishesDetails.html')
+@app.route('/AddDishes')
+def addNewDishes():
+    return render_template('Admin/addNewDishes.html')
 
-@app.route('/ExistingOrders')
-def ExistingOrders():
-    return render_template('Admin/ExistingOrders.html')
+@app.route('/ReviewView')
+def ReviewView():
+    return render_template('Admin/ReviewView.html')
 
-@app.route('/ClosedOrders')
-def ClosedOrders():
-    return render_template('Admin/ClosedOrders.html')
 
-@app.route('/Graphs')
-def Graphs():
-    return render_template('graph.html')
+
+# MENU
+
+@app.route('/menu')
+def menu():
+    return render_template('menu.html')
+
+@app.route('/get_menu', methods=['GET'])
+def get_menu():
+    menu = database.get_menu()
+    return jsonify(menu)
+
+# ADD NEW DISH
+@app.route('/add_new_dish', methods=['POST'])
+def add_new_dish():
+    dish_name = request.form['dishName']
+    dish_description = request.form['dishDescription']
+    dish_price = request.form['dishPrice']
+    dish_image = request.files['dishImage']
+    
+    if dish_image:
+        filename = secure_filename(dish_image.filename)
+        image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        dish_image.save(image_path)
+
+        # Save to database
+        database.add_dish(dish_name, dish_description, dish_price, image_path)
+        
+        return jsonify({"message": "Dish added successfully"}), 201
+    else:
+        return jsonify({"message": "Failed to add dish"}), 400
+
+
 
 # MANAGER
 
@@ -144,6 +141,24 @@ def management():
 @app.route('/manager')
 def manager():
     return render_template('Manager/manager.html')
+
+@app.route('/manager/orders', methods=['GET'])
+def get_open_orders():
+    orders = database.get_open_orders()
+    return jsonify(orders)
+
+@app.route('/manager/orders/<order_id>/close', methods=['POST'])
+def close_order(order_id):
+    database.close_order(order_id)
+    return '', 204
+
+@app.route('/checkout', methods=['POST'])
+def checkout():
+    data = request.json
+    cart = data['cart']
+    customer_name = data['customer_name']
+    order_id = database.add_order(cart, customer_name)
+    return jsonify({"order_id": order_id})
 
 
 # CUSTOMER
@@ -159,6 +174,30 @@ def NewOrder():
 @app.route('/ProductReview')
 def ProductReview():
     return render_template('Customer/ProductReview.html')
+
+# Opinion
+
+@app.route('/add_opinion', methods=['POST'])
+def add_opinion():
+    data = request.json
+    name = data['name']
+    email = data['email']
+    subject = data['subject']
+    message = data['message']
+    rating = data['rating']
+    success = database.add_opinion(name, email, subject, message, rating)
+    if success:
+        return jsonify({"message": "Opinion added successfully"}), 201
+    else:
+        return jsonify({"message": "Failed to add opinion"}), 400
+
+
+# Review
+
+@app.route('/get_reviews', methods=['GET'])
+def get_reviews():
+    reviews = database.get_reviews()
+    return jsonify(reviews)
 
 
 
