@@ -1,11 +1,11 @@
-# OLE - pâtisserie
+# Final Project: OLE-pâtisserie
 
 ## Course: Web Systems Development
 
 ### Created by:
 - Elad Tayar - 318784097
-- Lior Sinai - 
-- Or Menachem - 
+- Or Menachem - 323871335
+- Lior Sinai - 206626640
 
 
 ---
@@ -32,9 +32,10 @@ The project implements various web development techniques and principles, includ
 ## Technologies Used
 
 - **Front-end:**
-  - HTML5
-  - CSS3
-  - JavaScript (ES6+)
+  - HTML
+  - CSS
+  - JavaScript
+  - Python
   - [Framework/Library e.g., React, Angular, Vue]
 
 - **Back-end:**
@@ -56,10 +57,4 @@ The project implements various web development techniques and principles, includ
 - [Feature 4: Brief Description]
 - [Feature 5: Brief Description]
 
-## Installation
 
-To run this project locally, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone [repository URL]
