@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OLE || Add New Dish</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_newDish.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_newOrder.css') }}" />
+    <script type="text/javascript" src="{{ url_for('serve_js', filename='addNewDishes.js') }}" defer></script>
+  </head>
+  <body>
+    <section>
+      <nav class="navbar navbar-dropdown">
+        <div class="container-fluid">
+          <div class="home-button">
+            <span><a href="{{ url_for('home') }}">OLE</a></span>
+          </div>
+          <div class="nav-links">
+            <ul class="nav-bar" style="font-size: 20px">
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li style="margin-left: auto">
+                <a class="nav-item-logo" href="{{ url_for('admin') }}">Admin</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <br />
+    <h1>Adding a New Dish to The Menu</h1><br>
+    <section>
+      <div class="dishForm">
+        <form id="newDishForm" enctype="multipart/form-data">
+          <label for="dishName">The name of the dish:</label><br />
+          <input
+            class="dishInput"
+            type="text"
+            id="dishName"
+            name="dishName"
+            required
+          /><br /><br />
+
+          <label for="dishDescription">Description of the dish:</label><br />
+          <textarea
+          class="dishDescription"
+            id="dishDescription"
+            name="dishDescription"
+            required
+          ></textarea
+          ><br /><br />
+
+          <label for="dishPrice">Price of the dish:</label><br />
+          <textarea class="dishPrice" id="dishPrice" name="dishPrice" required></textarea
+          ><br /><br />
+
+          <label for="dishImage">A picture of the dish:</label><br />
+          <input
+            class="dishImage"
+            type="file"
+            id="dishImage"
+            name="dishImage"
+            accept="image/*"
+            required
+          /><br /><br />
+
+          <button class="submit-button" type="submit"><b>Add the dish to the menu</b></button>
+        </form>
+      </div>
+    </section>
+    <br><br>
+    <div>
+      <a class="logout-home-page" href="{{ url_for('logout') }}"
+        ><b>Logout</b></a
+      >
+      <a class="home-page" href="{{ url_for('home') }}"
+        ><b>Back to home page</b></a
+      >
+    </div>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OLE || Review</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/style_newOrder.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/style_review.css" />
+    <script type="text/javascript" src="{{ url_for('serve_js', filename='productReview.js') }}" defer></script>
+</head>
+<body>
+        <h1>Add a Review</h1>
+        <br />
+        <section>
+        <form id="reviewForm" onsubmit="addNewOpinion(event)">
+            <div class="reviewForm">
+            <label for="name">
+                <span>Name</span>
+                <br>
+                <input class="reviewInput" type="text" id="name" placeholder="Enter Your Name" required />
+            </label>
+            <br><br>
+            <label for="email">
+                <span>Email</span>
+                <br>
+                <input class="reviewInput" type="email" id="email" placeholder="Enter Your Email" required />
+            </label>
+        </div>
+            <br><br>
+
+            <div class="review">
+            <label for="subject"><span>Subject</span>                
+                <br>
+                <input class="reviewSubject" type="text" id="subject" placeholder="Enter Review Subject" required />
+            </label>
+        </div>
+
+            <br><br>
+            <div class="review">
+            <label for="message"><span>Feedback</span>
+                <br>        
+                <textarea class="reviewFeedBack" name="message" id="message" placeholder="Enter Your Feedback" required></textarea>
+            </label> </div>
+            <br><br>
+        <div class="review">
+            <label for="rating"><span>Rating Stars</span>                
+                <br>
+            
+                <div class="rate">
+                    <input type="radio" name="rating" id="star5" value="5"/>
+                    <label for="star5" title="text"></label>
+                    <input type="radio" name="rating" id="star4" value="4"/>
+                    <label for="star4" title="text"></label>
+                    <input type="radio" name="rating" id="star3" value="3"/>
+                    <label for="star3" title="text"></label>
+                    <input type="radio" name="rating" id="star2" value="2"/>
+                    <label for="star2" title="text"></label>
+                    <input type="radio" name="rating" id="star1" value="1" required />
+                    <label for="star1" title="text"></label>
+                </div>
+            </label>
+    </div>
+    <br><br>
+        <button type="submit" class="submit-button">
+            <b>Submit</b>
+        </button>
+    </form>
+    </section>
+    <section>
+        <div id="result"></div>
+    </section>
+    <br><br><br><br>
+    <section>
+        <div>
+            <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a> 
+            <a class="home-page" href="{{ url_for('home') }}"><b>Back to home page</b></a>
+        </div>
+    </section>
+</body>
+</html>

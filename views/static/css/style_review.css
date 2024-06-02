@@ -1,0 +1,106 @@
+.review {
+  display: grid;
+  width: device-width;
+  grid-template-rows: repeat(1,1fr);
+  font-size: 28px;
+  font-weight:700;
+  gap: 20px; /* מרווח בין הכפתורים */
+  text-align: left;
+}
+
+
+.reviewForm{
+  display: grid;
+  width: device-width;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 20px; /* מרווח בין הכפתורים */
+  font-size: 28px;
+  font-weight:700;
+  text-align: left;
+}
+
+.reviewFormStars{
+  display: grid;
+  width: device-width;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px; /* מרווח בין הכפתורים */
+  font-size: 24px;
+  font-weight:700;
+  text-align: left;
+
+}
+
+.reviewInput{
+  font-size: 18px;
+  padding: 20px 50px;
+  border-radius: 16px;
+}
+
+.reviewFeedBack{
+  font-size: 18px;
+  padding: 40px 240px;
+  border-radius: 16px;
+}
+
+.reviewSubject{
+  font-size: 18px;
+  padding: 20px 250px;
+  border-radius: 16px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.rate {
+  float: left;
+  height: 46px;
+  
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:left;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:50px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+.submit-button {
+  font-size: large;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, bold;
+  border: 2px solid black; /* סוג המסגרת ועוביה */
+  margin-right: 30px;
+  background-color: #ffe0f1;
+  padding: 20px 40px; /* ריווח פנימי בתוך המסגרת */
+  display: inline-block; /* שמירה על מיקום אינליין */
+  color: #000000;
+  border-radius: 16px;
+  text-decoration: none;
+}
+.submit-button:hover {
+  background-color: #ae819a;
+  color: rgb(255, 255, 255);
+}

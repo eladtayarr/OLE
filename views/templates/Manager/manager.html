@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLE || Manager</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style_newOrder.css">
+    <script type="text/javascript" src="{{ url_for('serve_js', filename='manager.js') }}" defer></script>
+</head>
+<body>
+<section>
+    <nav class="navbar navbar-dropdown">
+        <div class="container-fluid">
+            <div class="home-button">
+                <span><a href="#">OLE</a></span>
+            </div>
+            <div class="nav-links">
+                <ul class="nav-bar" style="font-size: 20px">
+                    <li><a href="#">Home</a></li>
+                    <li style="margin-left: auto">
+                        <a class="nav-item-logo" href="manager.html">Manager</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+<br>
+<section>
+    <div class="orders-container">
+        <h2>Open Orders</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody id="ordersTableBody">
+                <!-- ההזמנות יוצגו כאן -->
+            </tbody>
+        </table>
+    </div>
+</section>
+<br><br>
+<div>
+    <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a>
+    <a class="home-page" href="{{ url_for('home') }}"><b>Back to home page</b></a>
+</div>
+</body>
+</html>

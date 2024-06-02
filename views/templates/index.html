@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="user-scalable=0, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title class="title">OLE || Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_newOrder.css') }}" />
+    <script type="text/javascript" src="{{ url_for('serve_js', filename='addToCart.js') }}" defer></script>
+  </head>
+  <body>
+    <section class="">
+      <nav class="navbar navbar-dropdown">
+        <div class="container-fluid">
+          <div class="home-button">
+            <span><a href="#">OLE</a></span>
+          </div>
+
+          <div class="nav-links">
+            <ul class="nav-bar" style="font-size: 20px">
+              <li><a href="#">Home</a></li>
+              <li><a href="#About">About</a></li>
+              <li><a href="NewOrder">Products</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <br />
+    <br />
+    <section class="cont cid-sN2dg8se2K" id="Home">
+      <h1 class="ole-pat">OLE - pâtisserie</h1>
+    </section>
+    <br />
+    <br />
+    <section>
+      <div id="bodyloginForm"></div>
+      <div class="cont header navigation">
+        <h1 style="font-size: 40px">Welcome to OLE pâtisserie Home Page</h1>
+        {% if current_user.is_authenticated %}
+          {% if current_user.username == "elad" %}
+            <p style="font-size: 30px">
+              Hello, {{ current_user.username }}, <b>The Admin!</b>
+            </p>
+            <a class="home-page" href="{{ url_for('admin') }}"><b>Admin Home Page</b></a>
+            <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a>
+          {% elif current_user.username == "lior" %}
+            <p style="font-size: 30px">
+              Hello, {{ current_user.username }} , <b>Manager!</b>
+            </p>
+            <a class="home-page" href="{{ url_for('manager') }}"><b>Manager Home Page</b></a>
+            <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a>
+          {% elif current_user.username == "Or" %}
+            <p style="font-size: 30px">
+              Hello, {{ current_user.username }} , The <b>Manager!</b>
+            </p>
+            <a class="home-page" href="{{ url_for('manager') }}"><b>Manager Home Page</b></a>
+            <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a>
+          {% else %}
+            <p style="font-size: 30px">
+              Hello, {{ current_user.username }} ,<b>The Customer!</b>
+            </p>
+            <a class="home-page" href="{{ url_for('CustomerHome') }}"><b>Customer Home Page</b></a>
+            <a class="logout-home-page" href="{{ url_for('logout') }}"><b>Logout</b></a>
+          {% endif %}
+        {% else %}
+          <br />
+          <h2>
+            To create an Order or To enter the personal area, Please Login or Register.
+          </h2>
+          <br />
+          <div content="width=device-width, initial-scale=1.0">
+            <a class="login-home-page" href="{{ url_for('login') }}"><b>Login</b></a>
+            <a class="register-home-page" href="{{ url_for('register') }}"><b>Register</b></a>
+          </div>
+        {% endif %}
+      </div>
+    </section>
+    <br />
+    <br />
+    <section class="cont" id="About">
+      <div
+        class="mbr-overlay"
+        style="opacity: 0.1; background-color: rgb(78, 222, 241)"
+      ></div>
+      <h1 style="font-size: 40px; margin-top: auto">About OLE</h1>
+      <p style="font-size: 20px">
+        We handcraft timeless desserts using the finest ingredients and
+        traditional methods, just like the artisan pâtissiers of Paris. Step
+        into our charming boutique and indulge in a symphony of flavors. From
+        the buttery flakiness of a perfectly-baked croissant to the rich
+        decadence of a decadent chocolate éclair, each bite is a testament to
+        our dedication to quality and craftsmanship.
+      </p>
+    </section>
+    <br />
+    <br />
+    <section class="cont">
+      <h1 style="font-size: 40px; margin-top: auto">Best Sellers</h1>
+        <div class="order-container">
+          <div class="order-product-index">
+            <div class="order-product-inner-index">
+              <div class="order-product-front-index">
+                <img src="{{ url_for('static', filename='images/Croissant.webp') }}" alt="Croissant" />
+              </div>
+              <div class="order-product-back-index">
+                <h2>Croissant</h2>
+                <p>Explain of the Croissant</p>
+                <h3>10.00$</h3>
+              </div>
+            </div>
+          </div>
+          <div class="order-product-index">
+            <div class="order-product-inner-index">
+              <div class="order-product-front-index">
+                <img src="{{ url_for('static', filename='images/Macaron.webp') }}" alt="Macaron" />
+              </div>
+              <div class="order-product-back-index">
+                <h2>Macaron</h2>
+                <p>Explain of the Macaron</p>
+                <h3>15.00$</h3>
+              </div>
+            </div>
+          </div>
+          <div class="order-product-index">
+            <div class="order-product-inner-index">
+              <div class="order-product-front-index">
+                <img src="{{ url_for('static', filename='images/Cheesecake.webp') }}" alt="Cheesecake" />
+              </div>
+              <div class="order-product-back-index">
+                <h2>Cheesecake</h2>
+                <p>Explain of the Cheesecake</p>
+                <h3>20.00$</h3>
+              </div>
+            </div>
+          </div>
+          <div class="order-product-index">
+            <div class="order-product-inner-index">
+              <div class="order-product-front-index">
+                <img src="{{ url_for('static', filename='images/Chocolate_Cake.webp') }}" alt="Chocolate Cake" />
+              </div>
+              <div class="order-product-back-index">
+                <h2>Chocolate Cake</h2>
+                <p>Explain of the Chocolate Cake</p>
+                <h3>25.00$</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+
+        <section>
+      {% if current_user.is_authenticated %} 
+      {% if current_user.username =="elad" %}
+        <p style="font-size: 30px">
+          <b>Admin User Options:</b>
+        </p>
+        <a class="home-menu" href="{{ url_for('menu') }}"><b>View The Full Menu</b></a>
+        <a class="home-page" href="{{ url_for('addNewDishes') }}"><b>Add a Dish to The Menu</b></a>
+        <a class="home-page" href="{{ url_for('ReviewView') }}"><b>View Reviews</b></a>
+
+        {% elif current_user.username == "lior" %}
+        <p style="font-size: 30px">
+          <b>Manager User Options:</b>
+        </p>
+        <a class="home-menu" href="{{ url_for('menu') }}"><b>View The Full Menu</b></a>
+        <a class="home-page-manager" href="{{ url_for('manager') }}"><b>View Open Orders</b></a>
+        
+        {% elif current_user.username == "Or" %}
+        <p style="font-size: 30px">
+          <b>Manager User Options:</b>
+        </p>
+        <a class="home-menu" href="{{ url_for('menu') }}"><b>View The Full Menu</b></a>
+        <a class="home-page-manager" href="{{ url_for('manager') }}"><b>View Open Orders</b></a>
+
+        {% else %}
+        <p style="font-size: 30px"><b>Customer User Options:</b></p>
+        <a class="new-order-page" href="{{ url_for('NewOrder') }}"><b>Create a New Order</b></a>
+        <a class="new-review-page" href="{{ url_for('ProductReview') }}"><b>Create a New Review</b></a>
+        {% endif %}
+
+
+        {% else %}
+        <br />
+        <h2>To Create an Order Please Enter To Your Personal Area. <br><br>Click Here to Login or Register:</h2>
+        <br>
+          <a class="login-home-page" href="{{ url_for('login') }}"><b>Login</b></a>
+          <a class="register-home-page" href="{{ url_for('register') }}"><b>Register</b></a>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+  </body>
+</html>

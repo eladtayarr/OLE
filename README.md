@@ -1,60 +1,56 @@
-# Final Project: OLE-pâtisserie
+# App.py הסבר
 
-## Course: Web Systems Development
+## ייבוא ספריות
 
-### Created by:
-- Elad Tayar - 318784097
-- Or Menachem - 323871335
-- Lior Sinai - 206626640
+- **OS**: מודול עבור מערכת הפעלה ופעולות הקשורות (MAC במקרה שלנו).
+- **Flask**: מסגרת ליצירת אפליקציות מבוססות WEB. הוא כולל פונקציות עוזר לטיפול בתגובות HTTP, ניתוב ותבניות HTML.
+- **PyMongo**: מודול לחיבור למסד הנתונים MongoDB.
+- **Flask_login**: מודול המספק יכולות כניסה של משתמשים ליישומים.
+- **Werkzeug**: פונקציות להצפנת סיסמה ואימות.
+- **ObjectId**: יוצר מזהים עבור אובייקטים במסד הנתונים.
+- קישור נוסף לקובץ מסד הנתונים של Python באמצעות `ייבוא ​​מסד נתונים`.
+- **Database**: מבצעים קישור לקובץ הפייתון של בסיס הנתונים ע"י השורה יבוא קובץ הפייתון של מסד הנתונים
 
+## הגדרת תצוגה
 
----
+-	הגדרת מופע של האפליקציה ע"י שימוש ב-FLASK. לאחריו מבוצע קישור לAPI ומייצרים תצוגה. 
 
-## Table of Contents
+## פתיחת מחלקת USER 
+- אשר מייצגת את המשתמש, המחלקה מכילה שיטות להחזרת המשתמש מה-DB.
 
-- [Introduction](#introduction)
-- [Technologies Used](#technologies-used)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Contributors](#contributors)
-- [License](#license)
+## ניהול משתמשים
+### מכיל את הפוקנציות להתחברות, התנתקות או רישום לאפליקציה.
 
----
+- **Register**: פונקציה שבזמן בקשת POST היא מקבלת שם וסיסמא, מבצעת הצפנה לסיסמא ובודקת אם השם משתמש כבר קיים במסד נתונים, במידה וכן מקפיצה שגיאה למשתמש, אחרת מכניסה את המשתמש למסד נתונים ומודיעה על הרשמה. 
+- **Login()**: פונקציה המאפשרת התחברות משתמשים קיימים, מקבלת שם משתמש וסיסמא ע"י בקשת POST, מחפשת את השם במסד הנתונים ובודקת את נכונות הסיסמא. במידה ויש התאמה מבצעת התחברות, אחרת מחזירה שגיאה למשתמש. 
+- **Logout()**: פונקציה שמבצעת התנתקות של משתמש שמחובר למערכת ברגע זה, מבוצע פה שימוש בפונקציה שיובאה בהתחלה LOGOUT_USER().
 
-## Introduction
+## Page Configurations
 
-This project was developed as part of the Web Systems Development course at [University/College Name]. The main objective of this project is to [briefly describe the main goal of the project]. 
+- **Home Page Setup**: Independent of user type.
+- **User-Specific Pages**: In all cases, calls to JavaScript files are made.
+  - **Admin()**: Access to add new dishes and view customer reviews.
+  - **Manager()**: View open orders and update database with order statuses.
+  - **Customer()**: Create new orders and submit product reviews.
+  - **Menu()**: Access the menu page, retrieve dishes from the database.
 
-The project implements various web development techniques and principles, including front-end and back-end development, database integration, and user authentication.
+## Database.py
 
-## Technologies Used
+- API address and password settings.
+- Functions for interacting with the database:
+  - Add new orders, update orders, convert orders to JSON, manage reviews, and get menu details.
 
-- **Front-end:**
-  - HTML
-  - CSS
-  - JavaScript
-  - Python
-  - [Framework/Library e.g., React, Angular, Vue]
+## Scripts (JS)
 
-- **Back-end:**
-  - [Back-end Technology e.g., Node.js, Django, Flask]
-  - [Back-end Framework e.g., Express.js]
+- Includes redirections to functions in `app.py` or `database.py` written in Python.
+- Functions include adding new dishes, managing cart operations, and submitting product review.
 
-- **Database:**
-  - [Database e.g., MongoDB, MySQL, PostgreSQL]
+## Templates
 
-- **Other Technologies:**
-  - [Additional Technology 1 e.g., Git, Docker]
-  - [Additional Technology 2 e.g., Webpack, Babel]
+- **Index**: Home page.
+- Menu: Displays dishes in a tabular form.
+- Different templates based on user type for login, registration, admin operations, and customer interactions.
 
-## Features
+## CSS
 
-- [Feature 1: Brief Description]
-- [Feature 2: Brief Description]
-- [Feature 3: Brief Description]
-- [Feature 4: Brief Description]
-- [Feature 5: Brief Description]
-
-
+- Contains page designs.
